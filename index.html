@@ -43,7 +43,7 @@
       </p>
     </div>
     <div class="six">
-      <img src="img/ashish.png" alt="" class="lydia-dp" id="imagePath">
+      <img src="img/ashish.png" alt="" class="lydia-dp" id="image">
       <!--  <img src="img/hat.svg" alt="" class="hat">  -->
       <div class="wish">
         <h3 class="wish-hbd">Happy Birthday!</h3>
@@ -122,9 +122,22 @@
       <p class="last-smile">:)</p>
     </div>
   </div>
-</body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-<script type="application/javascript" src="main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+  <script type="application/javascript" src="main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('config.json') // Assuming your JSON file is in the same directory as this HTML file
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('name').innerText = data.name;
+          document.getElementById('greetingText').innerText = data.greetingText;
+          document.getElementById('wishText').innerText = data.wishText;
+          document.getElementById('image').src = data.imagePath;
+        });
+    });
+  </script>
+</body>
 
 </html>
